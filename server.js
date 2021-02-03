@@ -20,27 +20,32 @@ app.get("/notes", function(req, res) {
 
   // Displays all notes
 app.get("/api/notes", function(req, res) {
-  return res.json(notes);
+  res.sendFile(path.join(__dirname, "/Develop/db/db.json"))
+  // return res.json(notes);
 });
 
   // Create new note - takes in JSON input
 app.post("/api/notes", function(req, res) {
+  const notes = JSON.parse(fs.readFileSync("/Develop/db/db.json"))
   var newNote = req.body;
   console.log(newNote);
+  newNoteid = uuid.v4();
   notes.push(newNote);
+  fs.writeFileSync("/Develop/db/db.json", JSON.stringify(notes))
   res.json(newNote);
 });
 
   // Displays a single note, or returns false
 app.delete("/api/notes/:id", function(req, res) {
-  var deletedNote = res.json(id)
+  const notes = JSON.parse(fs.readFileSync("Develop/db/db.json"));
+  const deletedNote = notes.filter(removeNote => removeNote.id != req.params.id);
+  fs.writeFileSync("/Develop/db/db.json", JSON.stringify(deletedNote));
   console.log(deletedNote);
+  res.json(deletedNote);
   });
   
 
-
   // Starts the server to begin listening
-  // =============================================================
   app.listen(PORT, function() {
     console.log("server listening on: http://localhost:" + PORT);
   });
