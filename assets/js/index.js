@@ -1,8 +1,17 @@
+//Dependencies
+var express = require("express");
+var fs = require("fs");
+
 const $noteTitle = $(".note-title");
 const $noteText = $(".note-textarea");
 const $saveNoteBtn = $(".save-note");
 const $newNoteBtn = $(".new-note");
 const $noteList = $(".list-container .list-group");
+const app = express()
+var PORT = 9000;
+
+app.use(express.urlencoded({ extended: true })); //THIS HANDLES DATA PARSING WITH EXPRESS.
+app.use(express.json()); 
 
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
@@ -12,8 +21,8 @@ const getNotes = () => {
   return $.ajax({
     url: "/api/notes",
     method: "GET",
-  });
-};
+  }); //retrieve stored notes from db using for loop. data will contain noteTitle and noteText 
+  };
 
 // A function for saving a note to the db
 const saveNote = (note) => {
@@ -21,7 +30,7 @@ const saveNote = (note) => {
     url: "/api/notes",
     data: note,
     method: "POST",
-  });
+  });//sync notes with db
 };
 
 // A function for deleting a note from the db
@@ -85,7 +94,7 @@ const handleNoteView = function () {
   renderActiveNote();
 };
 
-// Sets the activeNote to and empty object and allows the user to enter a new note
+// Sets the activeNote to an empty object and allows the user to enter a new note
 const handleNewNoteView = function () {
   activeNote = {};
   renderActiveNote();
