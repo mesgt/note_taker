@@ -21,13 +21,20 @@ Published site: https://mesgt.github.io/note_taker/
 N/A
 
 ## Usage
-N/A
+
 
 ![alt text](assets/images/screenshot.png)
 
+<img src="./public/assets/images/mainPage.png" alt="noteTaker1" width="350" />
+<br><br>
+<img src="./public/assets/images/viewNote.png" alt="noteTaker4" width="350" />
+<br><br>
+<img src="./public/assets/images/writeNote.png" alt="noteTaker2" width="350" />
+<br><br>
+<img src="./public/assets/images/saveNote.png" alt="noteTaker3" width="350" />
+
 ## Credits
 N/A
-
 ## License
 The Unlicense
 
