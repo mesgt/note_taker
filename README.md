@@ -23,7 +23,7 @@ N/A
 ## Usage
 
 
-![alt text](assets/images/screenshot.png)
+![use example](./public/assets/images/noteTaker.gif)
 
 <img src="./public/assets/images/mainPage.png" alt="noteTaker1" width="350" />
 <br><br>
