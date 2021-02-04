@@ -12,7 +12,7 @@ const getNotes = () => {
   return $.ajax({
     url: "/api/notes",
     method: "GET",
-  }); //retrieve stored notes from db using for loop. data will contain noteTitle and noteText 
+  }); 
 };
 
 // A function for saving a note to the db
@@ -21,7 +21,7 @@ const saveNote = (note) => {
     url: "/api/notes",
     data: note,
     method: "POST",
-  });//sync notes with db
+  });
 };
 
 // A function for deleting a note from the db

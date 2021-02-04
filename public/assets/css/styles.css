@@ -4,6 +4,10 @@ html, body {
   padding: 0;
 }
 
+.navbar {
+  background-color: #1a9cc0 !important;
+}
+
 .save-note {
   display: none;
 }
